@@ -2,7 +2,9 @@ import {createAtom} from "@reatom/core";
 import {PAGES_MAX, PAGES_MIN} from "@src/config";
 import {PexelsDTO} from "@src/types";
 
-import {useAtomState} from "./hooks";
+import {useAtomState} from "./useAtomState";
+
+
 
 type TypeAtomState = {
     data: PexelsDTO[];

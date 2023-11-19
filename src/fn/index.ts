@@ -1,4 +1,3 @@
 export * from "./api";
-export * from "./helpers";
 export * from "./hooks";
-export * from "./useImageFeedAtom";
+export * from "./hooks/useImageFeedAtom";

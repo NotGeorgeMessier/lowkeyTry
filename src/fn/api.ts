@@ -1,7 +1,7 @@
 import {UNSAFE__PEXELS_API_KEY} from "@src/config";
 
 const PER_PAGE = 16;
-const getUrl = (page: number, per_page: number) => {
+const getUrl = (page: number, per_page: number): string => {
     return `https://api.pexels.com/v1/curated/?page=${page}&per_page=${per_page}`;
 };
 

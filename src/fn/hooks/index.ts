@@ -1,3 +1,3 @@
 export * from "./useAtomState";
-export * from "./useColorscheme";
+export * from "./useImageFeedAtom";
 export * from "./useNav";

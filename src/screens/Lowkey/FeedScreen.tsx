@@ -1,6 +1,6 @@
 import {useIsFocused} from "@react-navigation/native";
 import {BaseView, ImagesFeed, Pagination} from "@src/com";
-import {getPhotos, qq, useImageFeedAtom} from "@src/fn";
+import {getPhotos, useImageFeedAtom} from "@src/fn";
 import {RNScreen} from "@src/types";
 import * as React from "react";
 
@@ -11,16 +11,15 @@ const FeedScreen: RNScreen = () => {
 
     React.useEffect(() => {
         if (isFocused) {
-            qq("getPhotos");
             setLoading(true);
             getPhotos(currentPage)
                 .then((res) => {
                     setData(res);
                 })
-                .catch((e) => qq("err", e))
+                // eslint-disable-next-line no-console
+                .catch((e) => console.log("err", e))
                 .finally(() => setLoading(false));
         }
-
     }, [isFocused]);
 
     const onPage = async (page: number): Promise<void> => {
@@ -33,18 +32,16 @@ const FeedScreen: RNScreen = () => {
         if (newDataIndex < 0) {
             setLoading(true);
             try {
-                qq("getPhotos");
                 const res = await getPhotos(page);
                 setData(res);
             } catch (e) {
-                qq("err", e);
+                // eslint-disable-next-line no-console
+                console.log("err", e);
             } finally {
                 setLoading(false);
             }
         }
     };
-
-
 
     return (
         <BaseView>
